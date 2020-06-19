@@ -1,0 +1,18 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyBaseService as BaseService;
+use DummyRootNamespaceData\Repository\DummyVersion\DummyRepository;
+
+/** 
+* @brief Clase para implementar las reglas de negocio de DummyRepository
+* @author 
+* @date 
+*/
+class DummyClass extends BaseService {
+
+    public function __construct(DummyRepository $repository) {
+        parent::__construct($repository);
+    }
+}

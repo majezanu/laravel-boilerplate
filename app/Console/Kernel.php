@@ -13,7 +13,12 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\MakeCRUD::class,
+        Commands\MakeRepositoryCRUD::class,
+        Commands\MakeServiceCRUD::class,
+        Commands\MakeControllerCRUD::class,
+        Commands\MakeRouterCRUD::class,
+        Commands\MakeSwaggerModel::class
     ];
 
     /**

@@ -1,0 +1,37 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyBaseRepository as BaseRepository;
+use DummyRootNamespaceDummyModel;
+use Illuminate\Database\Eloquent\Model;
+
+/** 
+* @brief Clase para almacenar y representar DummyModel.
+* @author 
+* @date 
+*/
+class DummyClass extends BaseRepository {
+
+    /**
+    * @brief Función para recuperación modelo
+    *
+    * Función para poder recuperar el modelo en cuestion.
+    */
+    function getModel(): Model
+    {
+        $model = DummyModel::class;
+
+        return new $model;
+    }
+
+    /**
+    * @brief Función para recuperación del nombre del modelo
+    *
+    * Función para poder recuperar el nombre del modelo en cuestion en una cadena de texto.
+    */
+    function getTransFileName(): string
+    {
+        return 'DummyModel';
+    }
+}
