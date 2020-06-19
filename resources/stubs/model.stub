@@ -1,0 +1,47 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Database\Eloquent\Model;
+
+class DummyClass extends Model
+{
+    protected $table = 'DummyTable';
+
+    /**
+    * Filterable attributes.
+    *
+    * @var array
+    */
+    public $filters = [];
+
+    /**
+    * Rules for store a record
+    *
+    * @var array
+    */
+    public function rulesForStore() : array
+    {
+        return [];
+    }
+
+    /**
+    * Rules for update a record
+    *
+    * @var array
+    */
+    public function rulesForUpdate() : array
+    {
+        return [];
+    }
+
+    /**
+    * Names of relationships
+    *
+    * @var array
+    */
+    public function relationsNames()
+    {
+        return [];
+    }
+}

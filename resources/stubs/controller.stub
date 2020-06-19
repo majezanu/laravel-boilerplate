@@ -1,0 +1,21 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyBaseController as BaseController;
+
+use DummyRootNamespaceDomain\Service\DummyVersion\DummyService;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+
+/** 
+* @brief Clase para controlar las peticiones de servicio web CRUD
+* @author 
+* @date 
+*/
+class DummyClass extends  BaseController{
+
+    public function __construct(DummyService $service) {
+        parent::__construct($service);
+    }
+}

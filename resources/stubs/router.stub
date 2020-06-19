@@ -1,0 +1,223 @@
+<?php
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| is assigned the "api" middleware group. Enjoy building your API!
+|
+*/
+
+
+Route::group(['prefix' => 'DummyPrefix'], function() {
+    Route::group(['middleware' => 'auth:api'], function() {
+
+        /**
+        * @OA\Get(
+        *   path="/DummyPrefix",
+        *   summary="Lista de DummyModel",
+        *   description="Devuelve una lista de DummyModel",
+        *   tags={"DummyModel"},
+        *   security={{"passport": {"*"}}},
+        *   @OA\Parameter(
+        *          name="paginable",
+        *          description="Define si el resultado estará paginado",
+        *          required=false,
+        *          in="query",
+        *          @OA\Schema(
+        *              type="boolean"
+        *          )
+        *      ),
+        *   @OA\Parameter(
+        *          name="per_page",
+        *          description="Define la cantidad de resultados por página",
+        *          required=false,
+        *          in="query",
+        *          @OA\Schema(
+        *              type="number"
+        *          )
+        *      ), 
+        *   @OA\Parameter(
+        *          name="relations",
+        *          description="Define la un arreglo de las relaciones a obtener",
+        *          required=false,
+        *          style="deepObject",
+        *          in="query",
+        *          @OA\Schema(
+        *              type="array",
+        *              @OA\Items(type="string")
+        *          )
+        *      ),
+        *   @OA\Response(
+        *       response=200,
+        *     @OA\JsonContent(
+        *         type="array",
+        *         @OA\Items(ref="#/components/schemas/DummyModel")
+        *     ),
+        *       description="Muestra los DummyModel."
+        *     ),
+        *     @OA\Response(
+        *         response="400",
+        *         description="Ha ocurrido un error."
+        *     )
+        * )
+        */
+        Route::get('', 'API\DummyVersion\DummyController@index')->name("DummyPrefix.index");
+
+        /**
+        * @OA\Get(
+        *   path="/DummyPrefix/{id}",
+        *   summary="Obtener un DummyModel",
+        *   description="Obtener un DummyModel por su ID",
+        *   tags={"DummyModel"},
+        *   security={{"passport": {"*"}}},
+        *      @OA\Parameter(
+        *          name="id",
+        *          description="Identificador del DummyModel",
+        *          required=true,
+        *          in="path",
+        *          @OA\Schema(
+        *              type="integer"
+        *          )
+        *      ),
+        *   @OA\Parameter(
+        *          name="relations",
+        *          description="Define un arreglo de las relaciones a obtener",
+        *          required=false,
+        *          style="deepObject",
+        *          in="query",
+        *          @OA\Schema(
+        *              type="array",
+        *              @OA\Items(type="string")
+        *          )
+        *      ),
+        *   @OA\Response(
+        *       response=200,
+        *       @OA\MediaType(
+        *           mediaType="application/json",
+        *           @OA\Schema(ref="#/components/schemas/DummyModel")),
+        *       description="Muestra la respuesta."
+        *     ),
+        *   @OA\Response(
+        *       response="400",
+        *       description="Ha ocurrido un error.",
+        *        @OA\JsonContent(ref="#/components/schemas/Error")
+        *     ),
+        *   @OA\Response(
+        *       response="404",
+        *       description="El registro no se encuentra en la base de datos",
+        *       @OA\JsonContent(ref="#/components/schemas/Error")
+        *     )
+        * )
+        */
+        Route::get('/{id}', 'API\DummyVersion\DummyController@detail')->name('DummyPrefix.detail');
+
+        /**
+        * @OA\Post(
+        *   path="/DummyPrefix",
+        *   summary="Crear un DummyModel",
+        *   description="Devuelve el DummyModel creado",
+        *   tags={"DummyModel"},
+        *   security={{"passport": {"*"}}},
+        *   @OA\RequestBody(
+        *       request="DummyModel",
+        *       description="Objeto del DummyModel",
+        *       required=true,
+        *     @OA\JsonContent(
+        *           ref="#/components/schemas/DummyModel",
+        *     ),
+        *   ),
+        *   @OA\Response(
+        *       response=200,
+        *       @OA\MediaType(
+        *           mediaType="application/json",
+        *           @OA\Schema(ref="#/components/schemas/DummyModel")),
+        *       description="Devuelve el DummyModel creado."
+        *     ),
+        *   @OA\Response(
+        *       response="422",
+        *       description="Falta algún parámetro."
+        *     ),
+        *   @OA\Response(
+        *       response="400",
+        *       description="Ha ocurrido un error."
+        *     ),
+        * )
+        */
+        Route::post('', 'API\DummyVersion\DummyController@store')->name("DummyPrefix.store");
+
+        /**
+        * @OA\Patch(
+        *   path="/DummyPrefix/{id}",
+        *   summary="Actualizar un DummyModel",
+        *   description="Permite editar un DummyModel mediante su ID",
+        *   tags={"DummyModel"},
+        *   security={{"passport": {"*"}}},
+        *   @OA\RequestBody(
+        *       request="DummyModel",
+        *       description="Objeto del DummyModel",
+        *       required=true,
+        *     @OA\JsonContent(
+        *           ref="#/components/schemas/DummyModel",
+        *     ),
+        *   ),
+        *   @OA\Response(
+        *       response=200,
+        *       @OA\MediaType(
+        *           mediaType="application/json",
+        *           @OA\Schema(ref="#/components/schemas/DummyModel")),
+        *       description="Devuelve el DummyModel actualizado."
+        *     ),
+        *   @OA\Response(
+        *       response="422",
+        *       description="Falta algún parámetro."
+        *     ),
+        *   @OA\Response(
+        *       response="400",
+        *       description="Ha ocurrido un error."
+        *     ),
+        * )
+        */
+        Route::patch('/{id}', 'API\DummyVersion\DummyController@update')->name("DummyPrefix.update");
+
+        /**
+        * @OA\Delete(
+        *   path="/DummyPrefix/{id}",
+        *   summary="Elimina un DummyModel",
+        *   description="Elimina un DummyModel por su ID",
+        *   tags={"DummyModel"},
+        *   security={{"passport": {"*"}}},
+        *      @OA\Parameter(
+        *          name="id",
+        *          description="Identificador del DummyModel",
+        *          required=true,
+        *          in="path",
+        *          @OA\Schema(
+        *              type="integer"
+        *          )
+        *      ),
+        *   @OA\Response(
+        *       response=200,
+        *       description="Devuelve un código 200."
+        *     ),
+        *   @OA\Response(
+        *       response="400",
+        *       description="Ha ocurrido un error.",
+        *        @OA\JsonContent(ref="#/components/schemas/Error")
+        *     ),
+        *   @OA\Response(
+        *       response="404",
+        *       description="El registro no se encuentra en la base de datos",
+        *       @OA\JsonContent(ref="#/components/schemas/Error")
+        *     )
+        * )
+        */
+        Route::delete('/{id}', 'API\DummyVersion\DummyController@destroy')->name("DummyPrefix.destroy");
+    });
+});
