@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, Notifiable;
 
@@ -37,4 +37,41 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+    * Filterable attributes.
+    *
+    * @var array
+    */
+    public $filters = [];
+
+    /**
+    * Rules for store a record
+    *
+    * @var array
+    */
+    public function rulesForStore() : array
+    {
+        return [];
+    }
+
+    /**
+    * Rules for update a record
+    *
+    * @var array
+    */
+    public function rulesForUpdate() : array
+    {
+        return [];
+    }
+
+    /**
+    * Names of relationships
+    *
+    * @var array
+    */
+    public function relationsNames()
+    {
+        return [];
+    }
 }

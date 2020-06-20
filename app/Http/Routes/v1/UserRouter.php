@@ -227,7 +227,7 @@ Route::group(['prefix' => 'users'], function() {
         * @OA\Post(
         *   path="/users/auth/login",
         *   summary="Inicio de sesión",
-        *   description="Requiere el email del usuario y su contraseña para iniciar sesión",
+        *   description="Requiere el email del usuario y su contraseña para iniciar sesión. Correo debe estar verificado.",
         *   tags={"Auth"},
         *   security={},
         *   @OA\RequestBody(
