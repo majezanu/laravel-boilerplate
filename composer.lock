@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f76a78cfda34f30137ce545d67fc84e",
+    "content-hash": "12cdb87374ba78acf116888258bef4ee",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -112,33 +112,31 @@
         },
         {
             "name": "darkaonline/l5-swagger",
-            "version": "7.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DarkaOnLine/L5-Swagger.git",
-                "reference": "e5a8d2b88ebd00cb1aab8f7b8380eddc7792e50a"
+                "reference": "39b5ba2f742a14a1e18accde93e5f840eb872c30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DarkaOnLine/L5-Swagger/zipball/e5a8d2b88ebd00cb1aab8f7b8380eddc7792e50a",
-                "reference": "e5a8d2b88ebd00cb1aab8f7b8380eddc7792e50a",
+                "url": "https://api.github.com/repos/DarkaOnLine/L5-Swagger/zipball/39b5ba2f742a14a1e18accde93e5f840eb872c30",
+                "reference": "39b5ba2f742a14a1e18accde93e5f840eb872c30",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "laravel/framework": "^7.0",
                 "php": "^7.2",
                 "swagger-api/swagger-ui": "^3.0",
                 "symfony/yaml": "^5.0",
-                "zircote/swagger-php": "~2.0|3.*"
+                "zircote/swagger-php": "3.*"
             },
             "require-dev": {
                 "mockery/mockery": "1.*",
                 "orchestra/testbench": "5.*",
                 "php-coveralls/php-coveralls": "^2.0",
                 "phpunit/phpunit": "8.*"
-            },
-            "suggest": {
-                "zircote/swagger-php:~2.0": "!!! Require Swagger-PHP ~2.0 for @SWG annotations support !!!"
             },
             "type": "library",
             "extra": {
@@ -175,7 +173,13 @@
                 "laravel",
                 "swagger"
             ],
-            "time": "2020-03-05T07:15:45+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/DarkaOnLine",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-05-08T05:30:23+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -1434,6 +1438,61 @@
                 "psysh"
             ],
             "time": "2020-04-07T15:01:31+00:00"
+        },
+        {
+            "name": "laravel/ui",
+            "version": "v2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "15368c5328efb7ce94f35ca750acde9b496ab1b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/15368c5328efb7ce94f35ca750acde9b496ab1b1",
+                "reference": "15368c5328efb7ce94f35ca750acde9b496ab1b1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^7.0",
+                "illuminate/filesystem": "^7.0",
+                "illuminate/support": "^7.0",
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Ui\\": "src/",
+                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel UI utilities and presets.",
+            "keywords": [
+                "laravel",
+                "ui"
+            ],
+            "time": "2020-04-29T15:06:45+00:00"
         },
         {
             "name": "lcobucci/jwt",
@@ -6444,16 +6503,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "7462d5f123dfc080dfdf26897032a6513644fc95"
+                "reference": "30441f2752e493c639526b215ed81d54f369d693"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/7462d5f123dfc080dfdf26897032a6513644fc95",
-                "reference": "7462d5f123dfc080dfdf26897032a6513644fc95",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30441f2752e493c639526b215ed81d54f369d693",
+                "reference": "30441f2752e493c639526b215ed81d54f369d693",
                 "shasum": ""
             },
             "require": {
@@ -6467,7 +6526,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-1.x": "1.x-dev"
                 }
             },
             "autoload": {
@@ -6486,7 +6545,7 @@
                 }
             ],
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
-            "time": "2020-02-18T18:59:58+00:00"
+            "time": "2020-06-19T20:22:09+00:00"
         },
         {
             "name": "phpseclib/bcmath_compat",
@@ -7735,7 +7794,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "darkaonline/l5-swagger": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
