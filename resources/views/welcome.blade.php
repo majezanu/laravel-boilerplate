@@ -68,7 +68,8 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <simple-link url="{{ url('/home') }}" text="Home"></simple-link>
+                        <simple-link url="{{ route('l5-swagger.v1.api') }}" text="Swagger"></simple-link>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
