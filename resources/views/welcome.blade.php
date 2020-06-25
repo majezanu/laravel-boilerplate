@@ -64,11 +64,11 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div id="app" class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <simple-link url="{{ url('/home') }}" text="Home"></simple-link>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -83,11 +83,11 @@
                 <div class="title m-b-md">
                     {{ config('app.name') }}
                 </div>
-
                 <div class="links">
                     <a href="https://www.linkedin.com/in/majezanu/" target="_blank">By Manuel Zavala</a>
                 </div>
             </div>
         </div>
+        <script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>

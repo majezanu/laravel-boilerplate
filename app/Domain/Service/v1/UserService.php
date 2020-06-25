@@ -4,6 +4,7 @@ namespace App\Domain\Service\v1;
 
 use App\Core\Domain\BaseService as BaseService;
 use App\Data\Repository\v1\UserRepository;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 /** 
@@ -22,7 +23,7 @@ class UserService extends BaseService {
         try {
             if (Auth::attempt(['email' => $email, 'password' => $password])) {
                 $user = Auth::user();
-                if($user->email_confirmed) {
+                if($user->hasVerifiedEmail()) {
                     $tokenResult = $user->createToken('Personal Access Token');
                     $response =  ['response' =>[
                         'email' => $user->email,
@@ -34,7 +35,7 @@ class UserService extends BaseService {
                         ], 'code' => $this->successStatus];
                 }
                 else
-                    $response = ['response' => ['error' => 'Usuario no confirmado'], 'response' =>$this->unauthorizedStatus];
+                    $response = ['response' => ['error' => 'Usuario no confirmado'], 'code' =>$this->unauthorizedStatus];
             } else {
                 $response = ['response' => ['error' => 'Unauthorized'], 'code' => $this->unauthorizedStatus];
             }

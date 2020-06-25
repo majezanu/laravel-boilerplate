@@ -1,7 +1,7 @@
 <?php
 $latestVersion = 1;
 return [
-    'default' => 'v' . $latestVersion,
+    'default' => 'v1',
     'documentations' => [
         'v1' => [
 
@@ -47,11 +47,11 @@ return [
                  */
                 'middleware' => [
                     'api' => [
-                        \aviCloud\Http\Middleware\EncryptCookies::class,
+                        \App\Http\Middleware\EncryptCookies::class,
                         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
                         \Illuminate\Session\Middleware\StartSession::class,
                         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-                        \aviCloud\Http\Middleware\VerifyCsrfToken::class,
+                        \App\Http\Middleware\VerifyCsrfToken::class,
                         \Illuminate\Routing\Middleware\SubstituteBindings::class,
                         \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
                         'auth',
@@ -139,6 +139,7 @@ return [
             |--------------------------------------------------------------------------
             */
             'security' => [
+                
             ],
 
             /*
