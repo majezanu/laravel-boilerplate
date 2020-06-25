@@ -46,6 +46,12 @@
                             
                         @else
                             <li class="nav-item dropdown">
+                                <dropdown-api-docs :urls="{{json_encode([['url'=>route('l5-swagger.v1.api'), 'text' => 'V1']])}}"></dropdown-api-docs>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <dropdown-dev-tools :urls="{{json_encode([['url'=>route('telescope'), 'text' => 'Telescope']])}}"></dropdown-dev-tools>
+                            </li>
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
