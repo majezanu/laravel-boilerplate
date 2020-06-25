@@ -11,13 +11,17 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, Notifiable;
 
+    public const TYPES = [
+        'developer' => 'developer',
+        'normal' => 'normal'
+    ];
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'type',
     ];
 
     /**
@@ -73,5 +77,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function relationsNames()
     {
         return [];
+    }
+
+    public function isDeveloper()
+    {
+        return $this->type == User::TYPES['developer'];
     }
 }

@@ -23,6 +23,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('simple-link', require('./components/atoms/SimpleLink.vue').default);
 Vue.component('dropdown', require('./components/atoms/Dropdown.vue').default);
 Vue.component('dropdown-api-docs', require('./components/atoms/DropdownAPIDocs.vue').default);
+Vue.component('dropdown-dev-tools', require('./components/atoms/DropdownDevTools.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
