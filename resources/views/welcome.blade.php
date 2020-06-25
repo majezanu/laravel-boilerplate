@@ -69,7 +69,6 @@
                 <div class="top-right links">
                     @auth
                         <simple-link url="{{ url('/home') }}" text="Home"></simple-link>
-                        <simple-link url="{{ route('l5-swagger.v1.api') }}" text="Swagger"></simple-link>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -84,7 +83,6 @@
                 <div class="title m-b-md">
                     {{ config('app.name') }}
                 </div>
-                <example-component></example-component>
                 <div class="links">
                     <a href="https://www.linkedin.com/in/majezanu/" target="_blank">By Manuel Zavala</a>
                 </div>
